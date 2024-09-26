@@ -7,30 +7,42 @@ extends Control
 @onready var button_v_box_container: VBoxContainer = $TextureRect/ButtonVBoxContainer
 @onready var game_over_v_box_container: VBoxContainer = $TextureRect/GameOverVBoxContainer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-
+@onready var rules_button: TextureButton = $TextureRect/ButtonVBoxContainer/RulesButton
+@onready var return_button: TextureButton = $TextureRect/RulesVBoxContainer/ReturnButton
 
 const GAME_OVER_SOUND := preload("res://sfx/vgdeathsound.ogg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	play_button.mouse_entered.connect(audio_stream_player.play)
-	quit_button.mouse_entered.connect(audio_stream_player.play)
-	play_button.focus_entered.connect(audio_stream_player.play)
-	quit_button.focus_entered.connect(audio_stream_player.play)
+	for button in [play_button, quit_button, rules_button, return_button]:
+		button.mouse_entered.connect(audio_stream_player.play)
+		button.focus_entered.connect(audio_stream_player.play)
 	play_button.pressed.connect(_on_play_button_pressed)
+	rules_button.pressed.connect(_on_rules_button_pressed)
+	return_button.pressed.connect(show_main_menu)
 	quit_button.pressed.connect(get_tree().quit)
-	# only show the buttons
-	button_v_box_container.show()
-	rules_v_box_container.hide()
-	game_over_v_box_container.hide()
-	# hide the player
-	get_tree().get_first_node_in_group("player").hide()
+	show_main_menu()
+
 	# connect to the game over signal
 	get_tree().get_first_node_in_group("player").game_over.connect(_on_game_over)
 	# don't pause this scene
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	# pause the rest of the game
 	get_tree().paused = true
+
+
+func _on_rules_button_pressed() -> void :
+	hide_menu_entries()
+	rules_v_box_container.show()
+	return_button.disabled = false
+
+
+func show_main_menu() -> void:
+	hide_menu_entries()
+	play_button.disabled = false
+	rules_button.disabled = false
+	quit_button.disabled = false
+	button_v_box_container.show()
 
 
 
@@ -50,24 +62,17 @@ func _on_game_over() -> void :
 	
 
 func _on_play_button_pressed() -> void:
-	# disable the buttons
-	play_button.disabled = true
-	quit_button.disabled = true
-	# hide the buttons then show the rules
-	game_over_v_box_container.hide()
+	disable_buttons()
+	hide()
+	get_tree().paused = false
+
+
+func hide_menu_entries() -> void :
+	disable_buttons()
 	button_v_box_container.hide()
-	rules_v_box_container.show()
-	# only show the rules for 5 seconds
-	var timer = Timer.new()
-	self.add_child(timer)
-	timer.wait_time = 5.0
-	timer.start()
-	# unpause the game and hide the menu
-	timer.timeout.connect(func() -> void :
-		get_tree().paused = false
-		hide()
-		get_tree().get_first_node_in_group("player").show()
-		timer.queue_free()
-	)
+	rules_v_box_container.hide()
+	game_over_v_box_container.hide()
 
-
+func disable_buttons() -> void :
+	for button in [rules_button, play_button, quit_button, return_button]:
+		button.disabled = true

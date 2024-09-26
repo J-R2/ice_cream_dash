@@ -31,6 +31,7 @@ grow_vertical = 2
 texture = ExtResource("1_kna2p")
 
 [node name="ButtonVBoxContainer" type="VBoxContainer" parent="TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -72,13 +73,41 @@ modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
+[node name="RulesButton" type="TextureButton" parent="TextureRect/ButtonVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_7ta2e")
+texture_pressed = ExtResource("3_ihipj")
+texture_hover = ExtResource("3_ihipj")
+
+[node name="Label" type="Label" parent="TextureRect/ButtonVBoxContainer/RulesButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -41.5
+offset_right = 73.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "RULES"
+
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/ButtonVBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
 [node name="QuitButton" type="TextureButton" parent="TextureRect/ButtonVBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_7ta2e")
 texture_pressed = ExtResource("3_ihipj")
 texture_hover = ExtResource("3_ihipj")
 
-[node name="Label2" type="Label" parent="TextureRect/ButtonVBoxContainer/QuitButton"]
+[node name="Label" type="Label" parent="TextureRect/ButtonVBoxContainer/QuitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,6 +125,7 @@ theme_override_font_sizes/font_size = 60
 text = "QUIT"
 
 [node name="RulesVBoxContainer" type="VBoxContainer" parent="TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,13 +136,6 @@ offset_right = -46.0
 offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="TextureRect/RulesVBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Rules"
-horizontal_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/RulesVBoxContainer"]
 layout_mode = 2
@@ -127,7 +150,31 @@ Try to catch as many ice cream scoops as you can.
 
 Avoid the Cherries!"
 
+[node name="ReturnButton" type="TextureButton" parent="TextureRect/RulesVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_7ta2e")
+texture_pressed = ExtResource("3_ihipj")
+texture_hover = ExtResource("3_ihipj")
+
+[node name="Label" type="Label" parent="TextureRect/RulesVBoxContainer/ReturnButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -41.5
+offset_right = 73.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "RULES"
+
 [node name="GameOverVBoxContainer" type="VBoxContainer" parent="TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
