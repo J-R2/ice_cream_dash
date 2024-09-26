@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://xiq1a2m3lcg3"]
+
+[ext_resource type="Script" path="res://scenes/parallax_background_scene/animated_clouds.gd" id="1_7uk0p"]
+[ext_resource type="Texture2D" uid="uid://cj1c8i1okdfxd" path="res://scenes/parallax_background_scene/art/cloud.png" id="2_pp782"]
+
+[sub_resource type="Animation" id="Animation_blmik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-960, 540)]
+}
+
+[sub_resource type="Animation" id="Animation_xeyri"]
+resource_name = "move"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(2880, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-960, 540), Vector2(960, 540)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wn2tv"]
+_data = {
+"RESET": SubResource("Animation_blmik"),
+"move": SubResource("Animation_xeyri")
+}
+
+[node name="AnimatedClouds" type="Node2D"]
+script = ExtResource("1_7uk0p")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_pp782")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(-960, 540)
+texture = ExtResource("2_pp782")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wn2tv")
+}
+autoplay = "move"
+speed_scale = 0.3
