@@ -8,7 +8,8 @@
 radius = 79.0
 
 [node name="IceCream" type="Area2D" groups=["ice_cream"]]
-scale = Vector2(0.35, 0.35)
+y_sort_enabled = true
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_38iuo")
 
 [node name="IceCreamSprite" type="Sprite2D" parent="."]

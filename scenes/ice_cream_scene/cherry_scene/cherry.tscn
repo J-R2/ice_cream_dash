@@ -8,7 +8,8 @@ radius = 211.111
 height = 600.0
 
 [node name="Cherry" type="Area2D" groups=["cherry"]]
-scale = Vector2(0.09, 0.09)
+y_sort_enabled = true
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ympoq")
 
 [node name="Cherry" type="Sprite2D" parent="."]

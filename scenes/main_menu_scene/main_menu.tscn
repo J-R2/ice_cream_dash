@@ -125,15 +125,14 @@ theme_override_font_sizes/font_size = 60
 text = "QUIT"
 
 [node name="RulesVBoxContainer" type="VBoxContainer" parent="TextureRect"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 47.0
-offset_top = 38.0
-offset_right = -46.0
-offset_bottom = -37.0
+offset_left = 24.0
+offset_top = 47.0
+offset_right = -23.0
+offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -142,9 +141,10 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "
-[center]Use the arrow keys to move the player.
+[center]Use the arrow keys to move the ice cream cone.
 
 Try to catch as many ice cream scoops as you can.
 
@@ -152,9 +152,12 @@ Avoid the Cherries!"
 
 [node name="ReturnButton" type="TextureButton" parent="TextureRect/RulesVBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("2_7ta2e")
 texture_pressed = ExtResource("3_ihipj")
 texture_hover = ExtResource("3_ihipj")
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="TextureRect/RulesVBoxContainer/ReturnButton"]
 layout_mode = 1
@@ -164,14 +167,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -73.0
-offset_top = -41.5
+offset_top = -29.0
 offset_right = 73.0
-offset_bottom = 41.5
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "RULES"
+theme_override_font_sizes/font_size = 42
+text = "Return"
 
 [node name="GameOverVBoxContainer" type="VBoxContainer" parent="TextureRect"]
 visible = false

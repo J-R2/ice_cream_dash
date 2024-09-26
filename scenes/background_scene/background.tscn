@@ -14,8 +14,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_rik52")
 
-[node name="AnimatedClouds" parent="." instance=ExtResource("2_dude1")]
-
 [node name="Mountain" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -25,15 +23,21 @@ texture = ExtResource("3_kd6gb")
 position = Vector2(960, 540)
 texture = ExtResource("4_hbthb")
 
+[node name="AnimatedClouds" parent="." instance=ExtResource("2_dude1")]
+
 [node name="AnimatedClouds2" parent="." instance=ExtResource("2_dude1")]
 position = Vector2(-607, 144)
 
 [node name="Trees" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
+visible = false
+position = Vector2(960, 616)
+scale = Vector2(0.765, 0.765)
 texture = ExtResource("5_sodqp")
 
 [node name="Cake" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
+visible = false
+position = Vector2(960, 638)
+scale = Vector2(0.74, 0.74)
 texture = ExtResource("6_21th7")
 
 [node name="AnimatedClouds3" parent="." instance=ExtResource("2_dude1")]
