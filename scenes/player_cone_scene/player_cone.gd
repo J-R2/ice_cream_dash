@@ -26,10 +26,10 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	self.area_entered.connect(_on_area_entered)
 	self.game_over.connect(_on_game_over)
-	y_marker = screen_size.y - 80 # The bottom y-bound, where the player initially spawns
+	y_marker = screen_size.y - 85 # The bottom y-bound, where the player initially spawns
 	# Set the player position to the bottom center of the screen
 	position.y = y_marker
-	position.x = max_marker_x / 2
+	position.x = screen_size.x / 2
 
 
 func _process(delta: float) -> void:
