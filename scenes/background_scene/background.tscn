@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg5b17eny4l2h"]
+
+[ext_resource type="Texture2D" uid="uid://dxa4161kjtvmv" path="res://scenes/background_scene/art/layer06_sky.png" id="1_rik52"]
+[ext_resource type="PackedScene" uid="uid://xiq1a2m3lcg3" path="res://scenes/background_scene/animated_clouds.tscn" id="2_dude1"]
+[ext_resource type="Texture2D" uid="uid://c05j85yavypn2" path="res://scenes/background_scene/art/layer05_rocks.png" id="3_kd6gb"]
+[ext_resource type="Texture2D" uid="uid://dgudhgvakjebg" path="res://scenes/background_scene/art/layer01_ground.png" id="4_hbthb"]
+[ext_resource type="Texture2D" uid="uid://cw4nhxyabusx1" path="res://scenes/background_scene/art/layer03_trees.png" id="5_sodqp"]
+[ext_resource type="Texture2D" uid="uid://dksy4dbl6m3l6" path="res://scenes/background_scene/art/layer02_cake.png" id="6_21th7"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Sky" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_rik52")
+
+[node name="AnimatedClouds" parent="." instance=ExtResource("2_dude1")]
+
+[node name="Mountain" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_kd6gb")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("4_hbthb")
+
+[node name="AnimatedClouds2" parent="." instance=ExtResource("2_dude1")]
+position = Vector2(-607, 144)
+
+[node name="Trees" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_sodqp")
+
+[node name="Cake" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("6_21th7")
+
+[node name="AnimatedClouds3" parent="." instance=ExtResource("2_dude1")]
+position = Vector2(590, 170)

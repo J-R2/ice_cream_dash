@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpwv0yvlfss1"]
+
+[ext_resource type="PackedScene" uid="uid://bg5b17eny4l2h" path="res://scenes/background_scene/background.tscn" id="1_x5o55"]
+[ext_resource type="PackedScene" uid="uid://cloayqnuu815n" path="res://scenes/ice_cream_spawner_scene/ice_cream_spawner.tscn" id="2_5kxq6"]
+[ext_resource type="PackedScene" uid="uid://crx28akax6c2g" path="res://scenes/player_cone_scene/player_cone.tscn" id="3_0awbc"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_x5o55")]
+visible = false
+
+[node name="Spawner" parent="." instance=ExtResource("2_5kxq6")]
+
+[node name="Area2D" parent="." instance=ExtResource("3_0awbc")]

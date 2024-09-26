@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://crx28akax6c2g"]
+
+[ext_resource type="Texture2D" uid="uid://b3831cwkx1mvc" path="res://scenes/player_cone_scene/cream_cone.png" id="1_vvfs1"]
+[ext_resource type="Script" path="res://scenes/player_cone_scene/player_cone.gd" id="1_xo3n3"]
+[ext_resource type="AudioStream" uid="uid://u3y0odlmf75o" path="res://sfx/slime_jump.wav" id="3_bnn8f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5666n"]
+size = Vector2(125.714, 20)
+
+[node name="Player" type="Area2D" groups=["player"]]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_xo3n3")
+
+[node name="Cone" type="Sprite2D" parent="."]
+texture = ExtResource("1_vvfs1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -98)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_5666n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bnn8f")
+volume_db = -20.0

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtw1vxtemungr"]
+
+[ext_resource type="Script" path="res://scenes/ice_cream_scene/ice_cream.gd" id="1_38iuo"]
+[ext_resource type="Texture2D" uid="uid://bv3u4h5n8qhme" path="res://scenes/ice_cream_scene/art/ice_cream/ice_cream_choco.png" id="1_sdbox"]
+[ext_resource type="Texture2D" uid="uid://c0pm6ouwsav0v" path="res://scenes/ice_cream_scene/art/toppings/topsyrupblue.png" id="2_82lcy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i8x4r"]
+radius = 79.0
+
+[node name="IceCream" type="Area2D" groups=["ice_cream"]]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_38iuo")
+
+[node name="IceCreamSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -50)
+texture = ExtResource("1_sdbox")
+
+[node name="ToppingSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -50)
+texture = ExtResource("2_82lcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -50)
+shape = SubResource("CircleShape2D_i8x4r")

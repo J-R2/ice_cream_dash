@@ -1,0 +1,154 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh5h4ve8bruqb"]
+
+[ext_resource type="Texture2D" uid="uid://bar7unnsspu51" path="res://scenes/main_menu_scene/art/window-buttons-striped.png" id="1_kna2p"]
+[ext_resource type="Script" path="res://scenes/main_menu_scene/main_menu.gd" id="1_ryl4s"]
+[ext_resource type="Texture2D" uid="uid://uj577kls0jyb" path="res://scenes/main_menu_scene/art/coralpinkbutton1.png" id="2_7ta2e"]
+[ext_resource type="Texture2D" uid="uid://cx7vmjrpg2wtd" path="res://scenes/main_menu_scene/art/coralpinkbutton2.png" id="3_ihipj"]
+[ext_resource type="AudioStream" uid="uid://dtdurw3oxeq84" path="res://sfx/menu_selection_click.wav" id="5_c6gg3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ryl4s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kna2p")
+
+[node name="ButtonVBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -51.5
+offset_right = 131.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="TextureButton" parent="TextureRect/ButtonVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_7ta2e")
+texture_pressed = ExtResource("3_ihipj")
+texture_hover = ExtResource("3_ihipj")
+
+[node name="Label" type="Label" parent="TextureRect/ButtonVBoxContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "PLAY"
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/ButtonVBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="QuitButton" type="TextureButton" parent="TextureRect/ButtonVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_7ta2e")
+texture_pressed = ExtResource("3_ihipj")
+texture_hover = ExtResource("3_ihipj")
+
+[node name="Label2" type="Label" parent="TextureRect/ButtonVBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -41.5
+offset_right = 73.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "QUIT"
+
+[node name="RulesVBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_top = 38.0
+offset_right = -46.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextureRect/RulesVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Rules"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/RulesVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "
+[center]Use the arrow keys to move the player.
+
+Try to catch as many ice cream scoops as you can.
+
+Avoid the Cherries!"
+
+[node name="GameOverVBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_top = 38.0
+offset_right = -46.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextureRect/GameOverVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "GAME
+OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c6gg3")
+volume_db = -10.0
